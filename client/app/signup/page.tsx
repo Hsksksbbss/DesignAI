@@ -116,7 +116,7 @@ export default function SignupPage() {
         } else if (err.response?.status === 409) {
           // Conflict - email already exists
           setError(errorMessage || 'This email is already registered. Please use a different email or login.');
-        } else if (err.response?.status >= 500) {
+        } else if (err.response && err.response.status >= 500) {
           // Server error
           setError('Server error. Please try again later.');
         } else {
