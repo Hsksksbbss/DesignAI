@@ -59,7 +59,7 @@ export default function LoginPage() {
           setError(errorMessage || 'Invalid email or password. Please check your credentials.');
         } else if (err.response?.status === 403) {
           setError(errorMessage || 'Your account has been deactivated.');
-        } else if (err.response?.status >= 500) {
+        } else if (err.response && err.response.status >= 500) {
           setError('Server error. Please try again later.');
         } else {
           setError(errorMessage);
